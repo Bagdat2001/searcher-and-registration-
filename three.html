@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="meta-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="three.css">
+		<title>Candidate Information</title>
+	</head>
+	<body>
+		
+		<h1> Hello, it is a registration form. Please enter information about you </h1>
+		<form class="flex-container card" name="candidateInfo" >
+		
+			
+			<label class="label" id="labelName" name="fullName">Full Name*: </label>
+			<input type="text" class="input textbox" id="textBoxFullName" placeholder="ex: John Doe" required /> 
+			<!--Only Alphabets, spaces allowed, each word upto length 10 allowed. And need to enter first and last name-->
+			<p class = "invalid" id = "pName" hidden></p>
+			
+			<!--***************************Gender**************************************-->
+			<label class="label" id="labelGender" >Gender*: </label> <!--only one selection allowed-->
+			<div class="radio" id="divGenderRadio" style="float: right;" name="gender" required >
+				<label class="radio-inlinelabel" id="radioLabelMale">
+					<input type="radio" name="gender" class="radio-inline" id="inlineRadioMale" value="Male">Male
+				</label>
+				<label class="radio-inline label" id="radioLabelFemale">
+					<input type="radio" name="gender" class="radio-inline" id="inlineRadioFemale" value="Female">Female
+				</label>
+				
+			</div>
+			
+			<!--***************************Address***********************************-->
+			<label class="label" id="labelAddress" >Address*: </label><!-- Address has length restrictions of 200 characters -->
+			<textarea class="text-area input" id="textAreaAddress" name="address" rows="3" cols="30" placeholder="Enter Address here..." maxlength="200" required ></textarea> 
+			<p class = "invalid" id = "pAddress" hidden></p>
+			
+			<!--***************************Email***************************************-->
+			<label class="label" id="labelEmail">Email*:</label>
+			<input type="email" placeholder="abc@example.com" class="input textbox" name="email" id="textBoxEmail" required />
+			<p class = "invalid" id = "pEmail" hidden></p>
+			
+			<!--***************************Phone Number******************************-->
+			<label class="label" id="labelPhoneNumber">Phone Number*:</label><!--only numbers, 10 digit-->
+			<input type="tel" placeholder="ex: 1234567890" class="input textbox" name="phoneNumber" id="textBoxNumber" pattern="[0-9]{10}" required />
+			<p class = "invalid" id = "pNumber" hidden></p>
+			
+			
+			<!--***************************Skill***************************************-->
+			<table class="table" id="tableSkill" name="skillTable" width = "100%">
+				<label>Skills<label>
+				<th>
+					<td id="labelSkillName">Name</td>
+					<td id="labelSkillRating">Self Rating</td>
+					<td></td>
+				</th>
+				<!--Dynamic rows will be added here once Add Skill is clicked-->
+			</table>
+			<p class = "invalid" id = "pSkill" hidden></p>
+			<button type="button" class="btn" id="btnAddSkill" onclick = "addRow('tableSkill')">Add Skill</button><!--onclick adds/duplicates another ‘skill’-->
+			
+			<!--***************************Hobbies*************************************-->
+			<label class="label" id="labelHobbies">Hobbies: </label>
+			<input type="text" class="textbox input"  name="hobbies" id="textBoxHobbies" placeholder="separate by commas. ex:dancing, coding" width="50"/>
+			<p class = "invalid" id = "pHobbies"></p>
+			
+			<!--***************************Photo***************************************-->
+			<label class="label" id="labelPhoto">Photo*: </label>
+			<input type="url" class="textbox input" id="textBoxPhotos"  name="photos" placeholder="Please enter link to your online photo" width="50" required />
+			<p class = "invalid" id = "pPhotos" hidden></p>
+			
+			<!--***************************Submit**************************************-->
+			<button type="submit" class="btn" id="btnSubmit" onclick="onSubmit()" target="_blank" >Submit</button><!--onclick gets all the values in the form-->
+
+		</form>
+		
+		
+		
+		
+		<script src="three.js"></script>
+	
+		
+		
+	</body>
+</html>
+
+
+	
